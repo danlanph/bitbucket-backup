@@ -1,0 +1,10 @@
+{
+  "name": "bitbucket-backup",
+  "version": "0.0.0",
+  "description": "bitbucket-backup",
+  "main": "app.js",
+  "author": {
+    "name": "Daniel Lanphier",
+    "email": ""
+  }
+}
