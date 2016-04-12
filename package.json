@@ -6,5 +6,12 @@
   "author": {
     "name": "Daniel Lanphier",
     "email": ""
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "minimist": "^1.2.0",
+    "prompt": "^1.0.0",
+    "request-promise": "^2.0.1",
+    "underscore": "^1.8.3"
   }
 }
