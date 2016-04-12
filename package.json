@@ -1,5 +1,5 @@
 {
-  "name": "bitbucket-backup",
+  "name": "bitbucket-backup-oauth",
   "version": "0.0.1",
   "description": "bitbucket-backup",
   "main": "app.js",
