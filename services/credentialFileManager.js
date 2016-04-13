@@ -3,6 +3,15 @@
     const os = require("os");
     const path = require("path");
     const fs = require("fs");
+
+    var homeDir = null;
+
+    if (os.homedir)
+    {
+        homeDir = os.homedir();
+    } else {
+        homeDir = process.env.CREDENTIAL_LOCATION;
+    }
     
     const credentialFolderName = ".bitbucket-backup";
     
@@ -15,14 +24,14 @@
 
     function makeCredentialFolder()
     {
-        var directoryName = path.join(os.homedir(), credentialFolderName);
+        var directoryName = path.join(homeDir, credentialFolderName);
         fs.mkdirSync(directoryName);
     }
     
     function doesCredentialFolderExist()
     {
         try {
-            var folderStats = fs.statSync(path.join(os.homedir(), credentialFolderName));
+            var folderStats = fs.statSync(path.join(homeDir, credentialFolderName));
             return true;            
         } catch (ex) {
             return false;
@@ -30,8 +39,7 @@
     }
 
     function getCredentialFileName(repositoryOwner) {
-    
-        var homeDir = os.homedir();
+
         var filename = repositoryOwner + ".credential.json";
         var fullFilename = path.join(homeDir, credentialFolderName, filename);
 
