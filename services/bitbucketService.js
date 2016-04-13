@@ -68,7 +68,7 @@
 
                                 if (cloneLinks)
                                 {
-                                    var httpsLink = _.first(_.filter(cloneLinks, l => { return l.name == "https"; }));
+                                    var httpsLink = _.first(_.filter(cloneLinks, function (l) { return l.name == "https"; }));
                                     repositories.push({ name: repository.name, url: httpsLink.href });
                                 }
 
@@ -109,11 +109,11 @@
     bitbucketService.cloneRepositoryWithToken = function (repository) {
 
         var backupFolder = backupDir + repository.name;
-        var findPattern = `//${repositoryOwner}@bitbucket.org/`;
-        var replaceString = `//x-token-auth:${oauth.getAccessTokenSync()}@bitbucket.org/`;
+        var findPattern = "//" + repositoryOwner + "@bitbucket.org/";
+        var replaceString = "//x-token-auth:" + oauth.getAccessTokenSync() + "@bitbucket.org/";
         var cloneUrl = repository.url.replace(findPattern, replaceString);
 
-        var shellCommand = `git clone --bare ${cloneUrl} ${backupFolder}`;
+        var shellCommand = "git clone --bare " + cloneUrl + " " + backupFolder;
         process.execSync(shellCommand);
     };
 

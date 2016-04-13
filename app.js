@@ -24,7 +24,7 @@ oauth.init(tokenEndpoint, repoOwner)
 })
 .then(function (repositories) {
 
-    console.log(`Found ${repositories.length} repositories`);
+    console.log("Found " + repositories.length + " repositories");
     console.log("Cloning repositories");
 
     _.each(repositories, function (repository) {
